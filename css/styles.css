@@ -288,14 +288,11 @@ body {
 }
 
 .codeimg {
-  display: block;
   width: 550px;
-  object-fit: cover;
   max-height: 100%;
   background: none;
   transform: perspective(200px) rotateY(5deg) rotate(-3deg);
-  box-shadow: 27.1px 62.5px 125px -25px rgb(50 50 93 / 60%),
-    16.2px 37.5px 75px -37.5px rgb(0 0 0 / 70%);
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.7));
 }
 
 .accordion_right_wrapper {
