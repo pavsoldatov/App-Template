@@ -259,36 +259,33 @@ body {
 /* /.cards */
 
 /* Accordion */
-.accordion_heading {
+.accordion_section_heading {
   text-align: center;
   margin: 200px auto 30px auto;
   max-width: 760px;
 }
 
-.accordion_heading h1 {
+.accordion_section_heading h1 {
   font-size: 36px;
   margin: 20px 0;
 }
 
-.accordion_heading p {
+.accordion_section_heading p {
   font-size: 18px;
 }
 
 .accordion_wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
-
-  margin: 0 auto;
-  gap: 10px;
+  gap: 20px;
 }
 
 .img_left {
 }
 
 .codeimg {
-  width: 550px;
+  width: 540px;
   max-height: 100%;
   background: none;
   transform: perspective(200px) rotateY(5deg) rotate(-3deg);
@@ -297,57 +294,60 @@ body {
 
 .accordion_right_wrapper {
   display: block;
-
-  box-shadow: #999 5px 5px 5px 5px;
-}
-
-.accordion {
-  max-height: 415px;
-  overflow: auto;
-  display: block;
 }
 
 .accordion_item {
-  cursor: pointer;
-  margin-bottom: 8px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  margin-bottom: 6px;
 }
 
-.accordion_item:last-child {
-  margin-bottom: 0;
+.accordion_item.collapsing {
+  height: 0;
+  overflow: none;
+}
+
+.accordion_collapse {
+  height: 0;
 }
 
 .accordion_title {
-  padding: 12px;
-  color: #fff;
+  height: 2.5rem;
   display: inline-flex;
+  justify-content: space-between;
   width: 100%;
   align-items: center;
   font-size: 18px;
-  background: linear-gradient(to right, #fc4a1a, #f7b733);
+  background: none;
+  border: none;
+  border-bottom: 1.35px solid #fc4a1a;
 }
 
-.fab.fa-accusoft,
-.fas.fa-address-card,
-.fab.fa-algolia,
-.fab.fa-angular {
-  font-size: 34px;
-  margin-right: 10px;
-  display: inline-block;
-  width: 64px;
-  text-align: center;
-  color: #333b4e;
+.accordion_title::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url(/imgs/icons/down-arrow-svgrepo-com.svg);
+  transition: all 0.3s ease-in-out;
 }
 
-.accordion:hover .accordion_item:hover .accordion_item_content,
-.accordion .accordion_item_content {
-  height: 440px;
+.accordion_title.closed::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url(/imgs/icons/down-arrow-svgrepo-com.svg);
 }
 
-.accordion .accordion_item_content,
-.accordion:hover .accordion_item_content {
-  height: 0;
-  overflow: hidden;
-  transition: all 0.3s linear;
+.accordion_title.open {
+  font-weight: 700;
+}
+.accordion_title.open::after {
+  transform: rotate(180deg);
+}
+
+.accordion_panel {
 }
 
 ::-webkit-scrollbar {
@@ -369,7 +369,7 @@ body {
 
 /* Options */
 .options {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 .options_right {
